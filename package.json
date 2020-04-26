@@ -1,0 +1,24 @@
+{
+  "name": "brabble",
+  "version": "1.0.0",
+  "description": "An Automated Fantasy Football Draft Assistant for ESPN",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThouShawNotPass/brabble.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThouShawNotPass/brabble/issues"
+  },
+  "homepage": "https://github.com/ThouShawNotPass/brabble#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "nightmare": "^3.0.2"
+  }
+}
