@@ -1,0 +1,7 @@
+{
+  "default_locale": "en",
+  "description": "Expert rankings that automatically update as you draft.",
+  "manifest_version": 2,
+  "name": "Draft Guru",
+  "version": "0.0.1"
+}
