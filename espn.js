@@ -8,16 +8,18 @@
     let pickListener = setInterval(listenForPicks, 1000);
   }
 
-  // function showBest() {
-  //   let result = qsa('.jsx-2093861861 .playerinfo__playername');
-  //   console.log("Last Taken: " + result[result.length - 1].innerText);
-  // }
-
   function listenForPicks() {
     let picks = qsa('.jsx-2093861861 .playerinfo__playername');
-    if (picks.length > overallPick) {
-      console.log(picks[picks.length - 1].innerText + " was just drafted.");
+    if (picks.length === overallPick) {
+      let msg = picks[picks.length - 1].innerText + " was just drafted."
+      console.log(msg);
+      send(msg);
+      overallPick++;
     }
+  }
+
+  function send(message) {
+    chrome.runtime.sendMessage('Hello World!');
   }
 
   /* --- CSE 154 HELPER FUNCTIONS --- */
