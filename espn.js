@@ -18,11 +18,14 @@
     }
   }
 
+  /**
+   * Sends a message to the background script.
+   * @param {string} message - message to send.
+   */
   function send(message) {
     chrome.runtime.sendMessage('Hello World!');
   }
 
-  /* --- CSE 154 HELPER FUNCTIONS --- */
   /**
    * Returns the element with the specified ID attribute.
    * @param {string} name - element ID.
