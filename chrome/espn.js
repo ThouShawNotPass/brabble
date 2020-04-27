@@ -18,11 +18,19 @@
   function listenForPicks() {
     let names = qsa('.jsx-2093861861 .playerinfo__playername');
     if (names.length === overallPick) {
-      let msg = {
-        name: names[names.length - 1].innerText
+      let images = qsa('.jsx-2093861861 .player-headshot img:nth-child(1)');
+      let teams = qsa('.jsx-2093861861 .playerinfo__playerteam');
+      let positions = qsa('.jsx-2093861861 .playerinfo__playerpos');
+      let i = names.length - 1;
+      // Send JSON to background script
+      let player = {
+        name: names[i].innerText,
+        src: images[i].src,
+        team: teams[i].innerText,
+        position: positions[i].innerText
       };
-      send(msg);
-      console.log(names[names.length - 1].innerText + " was just drafted.");
+      console.log(player.name + " was just drafted.");
+      send(player);
       overallPick++;
     }
   }
