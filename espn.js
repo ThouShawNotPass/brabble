@@ -4,16 +4,25 @@
   window.addEventListener('load', init);
   var overallPick = 1;
 
+  /**
+   * Initializes the page.
+   */
   function init() {
     let pickListener = setInterval(listenForPicks, 1000);
   }
 
+  /**
+   * Listens for players to be added to the drafted list, then
+   * sends a message to the background script.
+   */
   function listenForPicks() {
-    let picks = qsa('.jsx-2093861861 .playerinfo__playername');
-    if (picks.length === overallPick) {
-      let msg = picks[picks.length - 1].innerText + " was just drafted."
-      console.log(msg);
+    let names = qsa('.jsx-2093861861 .playerinfo__playername');
+    if (names.length === overallPick) {
+      let msg = {
+        name: names[names.length - 1].innerText
+      };
       send(msg);
+      console.log(names[names.length - 1].innerText + " was just drafted.");
       overallPick++;
     }
   }
@@ -23,7 +32,7 @@
    * @param {string} message - message to send.
    */
   function send(message) {
-    chrome.runtime.sendMessage('Hello World!');
+    chrome.runtime.sendMessage(message);
   }
 
   /**
