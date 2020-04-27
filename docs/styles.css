@@ -1,0 +1,9 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
