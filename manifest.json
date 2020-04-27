@@ -1,7 +1,17 @@
 {
-  "default_locale": "en",
-  "description": "Expert rankings that automatically update as you draft.",
   "manifest_version": 2,
   "name": "Draft Guru",
-  "version": "0.0.1"
+  "description": "Expert rankings that automatically update as you draft.",
+  "version": "0.0.2",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://fantasy.espn.com/football/draft?*"],
+      "js": ["espn.js"]
+    }
+  ]
 }
