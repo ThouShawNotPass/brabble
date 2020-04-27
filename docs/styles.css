@@ -3,7 +3,55 @@ html {
 }
 
 body {
+  color: #3D4E66;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  width: 100vw;
+}
+
+aside {
+  width: 20vw;
+}
+
+aside > img {
+  height: auto;
+  padding: 1.2rem 1.2rem 1.2rem 3rem;
+  width: calc(80% - 4.2rem);
+}
+
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  padding: 1.5rem 1rem;
+}
+
+body,
+aside li {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+}
+
+aside li {
+  align-items: center;
+}
+
+aside li span {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+aside li span,
+aside li img {
+  padding-left: 2rem;
+}
+
+/* Save this for later */
+body div {
+  background-color: crimson;
+  width: 80vw;
 }
