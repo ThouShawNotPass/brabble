@@ -6,7 +6,7 @@ body {
   color: #3D4E66;
   font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
-  width: 100vw;
+  width: calc(100vw - 1.5rem);
 }
 
 aside {
@@ -34,15 +34,13 @@ li {
 
 body,
 aside li,
-nav ul,
-main {
+nav ul {
   display: flex;
   flex-direction: row;
 }
 
 aside li,
-nav ul li,
-main {
+nav ul li {
   align-items: center;
 }
 
@@ -79,7 +77,7 @@ hr {
 }
 
 body div {
-  width: 85vw;
+  width: calc(100% - 15vw);
 }
 
 nav ul {
@@ -88,21 +86,53 @@ nav ul {
 }
 
 nav ul li:first-child {
+  align-items: center;
+  display: flex;
   margin-right: auto;
 }
 
+nav ul li:first-child span {
+  padding-left: 0.5rem;
+}
+
+nav ul li:first-child span:nth-child(2){
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+nav ul li:first-child span:nth-child(3){
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
 main {
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 4rem 4rem 4rem;
+  display: grid;
+  gap: 2rem;
+  grid: none / repeat(12, 1fr);
+  padding: 4rem;
 }
 
 main section {
   background-color: white;
   border-radius: 1.5rem;
   box-shadow: 0.5rem 0.5rem 2rem #3D4E6611;
-  margin-top: 4rem;
-  width: calc((100% - 20rem) / 3);
+  grid-column: span 4;
+}
+
+main section:not(.table) {
+  padding: 2rem;
+}
+
+section.tall {
+  grid-row: span 2;
+}
+
+section.wide {
+  grid-column: span 8;
+}
+
+section.quarter {
+  grid-column: span 3;
 }
 
 section h1 {
@@ -110,46 +140,35 @@ section h1 {
   margin-top: 0;
 }
 
-section h2 {
+section h2,
+section.table span {
+  color: #888888;
   font-size: 1.6rem;
   font-weight: 300;
 }
 
-section.double-wide {
-  width: calc(2 * (100% - 2rem) / 3);
+section.table h1,
+section.table h2 {
+  padding: 2rem 0 0 2rem;
 }
 
-section table {
-  border-collapse: collapse;
-  width: 100%;
+section.table ul li {
+  padding: 0.8rem 2rem;
 }
 
-section.double-wide h1 ,
-main section:not(.double-wide) {
-  padding: 2rem;
+section.table ul li:not(#bench) > span:first-child {
+  color: #3D4E66;
+  display: inline-block;
+  font-weight: 500;
+  width: 4.5rem;
 }
 
-section thead {
-  font-size: 1.4rem;
+section.table ul li span > span {
+  padding-left: 0.5rem;
 }
 
-section table tbody tr {
-  font-size: 1.5rem;
-  height: 4rem;
+section.table ul li:not(#bench) > span:last-child {
+  float: right;
 }
 
-section table thead tr {
-  height: 2.5rem;
-}
-
-section table tr {
-  text-align: center;
-}
-
-section table td:first-child {
-  text-align: left;
-}
-
-section table tbody tr:nth-child(odd) {
-  background-color: #FAFAFA;
-}
+section.table 
