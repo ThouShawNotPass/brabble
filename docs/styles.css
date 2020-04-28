@@ -10,7 +10,7 @@ body {
 }
 
 aside {
-  width: 20vw;
+  width: 15vw;
 }
 
 aside > img {
@@ -27,7 +27,7 @@ ul {
 
 li {
   list-style: none;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 0.5rem;
 }
 
 body,
@@ -38,6 +38,7 @@ aside li {
 
 aside li {
   align-items: center;
+  cursor: pointer;
 }
 
 aside li span {
@@ -50,8 +51,17 @@ aside li img {
   padding-left: 2rem;
 }
 
-/* Save this for later */
-body div {
-  background-color: crimson;
-  width: 80vw;
+aside li.active,
+aside li:hover {
+  background-color: #FAFAFA;
 }
+
+hr {
+  color: #FAFAFA;
+  margin: 0;
+}
+
+body div {
+  width: 85vw;
+}
+
