@@ -124,6 +124,7 @@ section table {
   width: 100%;
 }
 
+section.double-wide h1 ,
 main section:not(.double-wide) {
   padding: 2rem;
 }
@@ -151,8 +152,4 @@ section table td:first-child {
 
 section table tbody tr:nth-child(odd) {
   background-color: #FAFAFA;
-}
-
-section.double-wide h1 {
-  padding: 2rem;
 }
