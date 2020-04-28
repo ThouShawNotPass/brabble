@@ -1,0 +1,35 @@
+body.dark-mode {
+  color: #DDDDDD;
+}
+
+body.dark-mode aside {
+  background-color: #0D131A;
+}
+
+body.dark-mode aside li.active,
+body.dark-mode aside li:hover,
+body.dark-mode main {
+  background-color: #090E14;
+}
+
+body.dark-mode hr {
+  border-color: #090E14;
+}
+
+body.dark-mode > div {
+  background-color: #0D131A;
+}
+
+body.dark-mode main section {
+  background-color: #0D131A;
+  box-shadow: 0.5rem 0.5rem 2rem #00000022;
+}
+
+section h2 {
+  color: #888888;
+}
+
+body.dark-mode section table tbody tr:nth-child(odd) {
+  background-color: #0D131A;
+  color: #888888;
+}
