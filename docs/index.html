@@ -7,165 +7,190 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/docs/styles.css">
   <link rel="stylesheet" href="/docs/dark-mode.css">
+  <script src="/docs/stats.js"></script>
+  <script src="/docs/team.js"></script>
+  <script src="/docs/draft-manager.js"></script>
   <script src="/docs/index.js"></script>
+  <script src="/docs/data.js"></script>
 </head>
 <body>
-  <aside>
-    <img id="logo" src="img/draft-guru.png" alt="The draft guru logo.">
+  <nav>
     <ul>
-      <li class="active">
-        <img id="home" src="img/awesome-home.png" alt="A home icon.">
-        <span>War Room</span>
+      <li>
+        <img id="logo" src="img/draft-guru.png" alt="The Draft Guru logo.">
+        <span id="pick">Pick 1.1</span>
+        <span id="overall">(#1 OVR)</span>
       </li>
       <li>
-        <img id="dashboard" src="img/material-dashboard.png" alt="A dashboard icon.">
-        <span>Draftboard</span>
+        <img id="mode" src="img/awesome-cloud-moon.png" alt="A moon and clouds.">
       </li>
       <li>
-        <img id="trophy" src="img/ionic-md-trophy.png" alt="A trophy icon.">
-        <span>Draft Rating</span>
+        <img id="sound" src="img/ionic-ios-musical-notes-muted.png" alt="Some musical notes.">
+      </li>
+      <li>
+        <img id="help" src="img/ionic-ios-help-circle-outline.png" alt="A question mark icon.">
       </li>
     </ul>
-  </aside>
-  <hr>
+  </nav>
   <div>
-    <nav>
+    <aside>
       <ul>
-        <li>
-          <img id="menu" src="img/feather-menu.png" alt="The menu icon.">
-          <span id="pick">Pick 1.1</span>
-          <span id="overall">(#1 OVR)</span>
+        <li class="active">
+          <img id="home" src="img/awesome-home.png" alt="A home icon.">
+          <span>War Room</span>
         </li>
         <li>
-          <img id="mode" src="img/awesome-cloud-moon.png" alt="A moon and clouds.">
+          <img id="dashboard" src="img/material-dashboard.png" alt="A dashboard icon.">
+          <span>Draftboard</span>
         </li>
         <li>
-          <img id="sound" src="img/ionic-ios-musical-notes.png" alt="Some musical notes.">
-        </li>
-        <li>
-          <img id="help" src="img/ionic-ios-help-circle-outline.png" alt="A question mark icon.">
+          <img id="trophy" src="img/ionic-md-trophy.png" alt="A trophy icon.">
+          <span>Draft Rating</span>
         </li>
       </ul>
-    </nav>
-    <hr>
+    </aside>
     <main>
-      <section>
-        <h1>VBD Score</h1>
-        <h2>Value-based draft score</h2>
-      </section>
-      <section>
-        <h1>Projected PPW</h1>
-        <h2>Projected points per week</h2>
+      <section class="tall wide player-table">
+        <h1>Best Available</h1>
+        <ul id="best-available">
+          <li>
+            <img src="/docs/img/profile-red.png" alt="Placeholder image.">
+            <div class="player-information">
+              <span class="player-name">Tom Brady</span>
+              <div>
+                <span class="player-position">QB</span>
+                <span class="player-team">TB</span>
+                <span class="player-bye">BYE&nbsp8</span>
+                <span class="player-status">CUFF</span>
+              </div>
+            </div>
+            <div class="player-stat-1">
+              <span>ECR</span>
+              <span>1</span>
+            </div>
+            <div class="player-stat-2">
+              <span>BEST</span>
+              <span>1</span>
+            </div>
+            <div class="player-stat-3">
+              <span>ADP</span>
+              <span>1</span>
+            </div>
+            <div class="player-stat-big">
+              <span>80%</span>
+              <span>of experts agree</span>
+            </div>
+          </li>
+        </ul>
       </section>
       <section class="tall table">
         <h1>My Team</h1>
-        <ul>
-          <li>
+        <ul id='my-team'>
+          <li id="team-qb-1">
             <span>QB</span>
-            <span>Russel Willson<span>SEA</span></span>
-            <span>BYE 5</span>
+            <span class="player-name">Russel Willson<span class="player-team">SEA</span></span>
+            <span class="player-bye">BYE &nbsp 5</span>
           </li>
-          <li>
+          <li id="team-rb-1">
             <span>RB</span>
-            <span>Joe Mixon<span>CIN</span></span>
-            <span>BYE 10</span>
+            <span class="player-name">Joe Mixon<span class="player-team">CIN</span></span>
+            <span class="player-bye">BYE 10</span>
           </li>
-          <li>
+          <li id="team-rb2">
             <span>RB</span>
-            <span>Marshawn Lynch<span>SEA</span></span>
-            <span>BYE 5</span>
+            <span class="player-name">Marshawn Lynch<span class="player-team">SEA</span></span>
+            <span class="player-bye">BYE &nbsp 5</span>
           </li>
-          <li>
+          <li id='team-wr-1'>
             <span>WR</span>
-            <span>Antonio Brown<span>FA</span></span>
-            <span>BYE 9</span>
+            <span class="player-name">Antonio Brown<span class='player-team'>FA</span></span>
+            <span class="player-bye">BYE &nbsp 9</span>
           </li>
-          <li>
+          <li id="team-wr-2">
             <span>WR</span>
-            <span>Odell Beckham<span>CLE</span></span>
-            <span>BYE 7</span>
+            <span class="player-name">Odell Beckham<span class="player-team">CLE</span></span>
+            <span class="player-bye">BYE &nbsp 7</span>
           </li>
-          <li>
+          <li class="team-flex-1">
             <span>FLEX</span>
-            <span>Rob Gronkowski<span>TB</span></span>
-            <span>BYE 6</span>
+            <span class="player-name">Rob Gronkowski<span class="player-team">TB</span class="player-team"></span>
+            <span class="player-bye">BYE &nbsp 6</span>
           </li>
-          <li>
+          <li class="team-flex-2">
             <span>FLEX</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
-          <li>
+          <li class="team-dst">
             <span>DST</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
-          <li>
+          <li class="team-k">
             <span>K</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
         </ul>
         <h1>Bench</h1>
         <ul>
-          <li>
+          <li class="team-bench-1">
             <span>BE</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
-          <li>
+          <li class="team-bench-2">
             <span>BE</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
-          <li>
+          <li class="team-bench-3">
             <span>BE</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
-          <li>
+          <li class="team-bench-4">
             <span>BE</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
-          <li>
+          <li class="team-bench-5">
             <span>BE</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
-          <li>
+          <li class="team-bench-6">
             <span>BE</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
-          <li>
+          <li class="team-bench-7">
             <span>BE</span>
-            <span><span></span></span>
-            <span></span>
+            <span class="player-name"><span class="player-team"></span></span>
+            <span class="player-bye"></span>
           </li>
         </ul>
       </section>
-      <section class="wide table">
-        <h1>Best Available</h1>
-        <h2>A list of the best undrafted players</h2>
-      </section>
       <section class="quarter table">
-        <h1>OV | ECR</h1>
+        <h1>OVR | ECR</h1>
         <h2>A list of the best undrafted players</h2>
       </section>
       <section class="quarter table">
         <h1>RB | ECR</h1>
-        <h2>A list of the best undrafted players</h2>
+        <h2>A list of the best undrafted running backs</h2>
       </section>
       <section class="quarter table">
         <h1>WR | ECR</h1>
-        <h2>A list of the best undrafted players</h2>
+        <h2>A list of the best undrafted wide recievers</h2>
       </section>
       <section class="quarter table">
         <h1>QB | ECR</h1>
-        <h2>A list of the best undrafted players</h2>
+        <h2>A list of the best undrafted quarterbacks</h2>
       </section>
     </main>
   </div>
+  <audio id="audio">
+    <source loop src="audio/theme.mp3" type="audio/mp3">
+  </audio>
 </body>
 </html>

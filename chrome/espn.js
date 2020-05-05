@@ -8,7 +8,7 @@
    * Initializes the page.
    */
   function init() {
-    let pickListener = setInterval(listenForPicks, 1000);
+    setInterval(listenForPicks, 1000);
   }
 
   /**
@@ -18,19 +18,9 @@
   function listenForPicks() {
     let names = qsa('.jsx-2093861861 .playerinfo__playername');
     if (names.length === overallPick) {
-      let images = qsa('.jsx-2093861861 .player-headshot img:nth-child(1)');
-      let teams = qsa('.jsx-2093861861 .playerinfo__playerteam');
-      let positions = qsa('.jsx-2093861861 .playerinfo__playerpos');
-      let i = names.length - 1;
-      // Send JSON to background script
-      let player = {
-        name: names[i].innerText,
-        src: images[i].src,
-        team: teams[i].innerText,
-        position: positions[i].innerText
-      };
-      console.log(player.name + " was just drafted.");
-      send(player);
+      let player = names[names.length - 1].innerText;
+      console.log(player + " was just drafted.");
+      sendMessage(player);
       overallPick++;
     }
   }
@@ -39,7 +29,7 @@
    * Sends a message to the background script.
    * @param {string} message - message to send.
    */
-  function send(message) {
+  function sendMessage(message) {
     chrome.runtime.sendMessage(message);
   }
 

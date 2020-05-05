@@ -3,7 +3,7 @@
 
   "name": "Draft Guru",
   "description": "Expert rankings that automatically update as you draft.",
-  "version": "0.10",
+  "version": "0.14",
 
   "background": {
     "scripts": ["background.js"]
@@ -14,8 +14,16 @@
     "default_icon": "icon.png"
   },
 
-  "content_scripts": [{
-    "matches": ["https://fantasy.espn.com/football/draft?*"],
-    "js": ["espn.js"]
-  }]
+  "permissions": ["https://www.fantasypros.com/*"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://fantasy.espn.com/football/draft?*"],
+      "js": ["espn.js"]
+    }, 
+    {
+      "matches": ["http://localhost:5500/docs/index.html"],
+      "js": ["guru.js"]
+    }
+  ]
 }

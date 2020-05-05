@@ -2,13 +2,21 @@
 (function() {
 
   window.addEventListener('load', init);
+
   var isDarkMode = false;
-  var isMuted = false;
+  var isMuted = true;
 
   function init() {
     id('mode').addEventListener('click', toggleMode);
     id('sound').addEventListener('click', function() {
       isMuted = !isMuted;
+      let audio = id('audio');
+      if (!isMuted) {
+        audio.currentTime = 0;
+        audio.play();
+      } else {
+        audio.pause();
+      }
       updateSound();
     });
   }
@@ -21,7 +29,7 @@
     let home = id('home');
     let dashboard = id('dashboard');
     let trophy = id('trophy');
-    let menu = id('menu');
+    let logo = id('logo');
     let mode = id('mode');
     let help = id('help');
     if (isDarkMode) {
@@ -29,7 +37,7 @@
       home.src = "/docs/img/awesome-home.png";
       dashboard.src = "/docs/img/material-dashboard.png";
       trophy.src = "/docs/img/ionic-md-trophy.png";
-      menu.src = "/docs/img/feather-menu.png";
+      logo.src = "/docs/img/draft-guru.png";
       mode.src = "/docs/img/awesome-cloud-moon.png";
       help.src = "/docs/img/ionic-ios-help-circle-outline.png";
     } else {
@@ -37,7 +45,7 @@
       home.src = "/docs/img/awesome-home-dark.png";
       dashboard.src = "/docs/img/material-dashboard-dark.png";
       trophy.src = "/docs/img/ionic-md-trophy-dark.png";
-      menu.src = "/docs/img/feather-menu-dark.png";
+      logo.src = "/docs/img/draft-guru-dark.png";
       mode.src = "/docs/img/awesome-sun.png";
       help.src = "/docs/img/ionic-ios-help-circle-outline-dark.png";
     }
