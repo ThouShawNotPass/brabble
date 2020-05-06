@@ -6,7 +6,24 @@
   var draftManager;
 
   function init() {
-    fetchStats();
+    id('num-best').onchange = updateNumBest;
+    if (storageContainsKey('rankings')) {
+      let rankings = getKey('rankings');
+      draftManager = new DraftManager(rankings.players, rankings.numTeams);
+      updateUI();
+    } else {
+      console.log('fetching new stats...');
+      fetchStats();
+    }
+  }
+
+  /**
+   * Updates the number of best players to display and updates UI.
+   */
+  function updateNumBest() {
+    let num = qs('option:checked').value;
+    draftManager.setBest(num);
+    updateUI();
   }
 
   /**
@@ -76,7 +93,7 @@
       p.src = imgPath + p.id + '.jpg';
       rankings.players.push(p);
     }
-    console.log(rankings);
+    save('rankings', rankings); // save session storage
     draftManager = new DraftManager(rankings.players, rankings.numTeams);
   }
 
@@ -198,12 +215,46 @@
   }
 
   /**
+   * Returns first element matching selector.
+   * @param {string} selector - CSS query selector.
+   * @returns {object} - DOM object associated selector.
+   */
+  function qs(selector) {
+    return document.querySelector(selector);
+  }
+
+  /**
    * Generates a new element with the given tag.
    * @param {string} name – the name of the element
    * @returns {object} – the DOM object created
    */
   function gen(name) {
     return document.createElement(name);
+  }
+
+  /**
+   * Saves the object as a string to session storage with the associated key.
+   * @param {string} key - the name of the saved data
+   * @param {object} object - the thing to save
+   */
+  function save(key, object) {
+    window.sessionStorage.setItem(key, JSON.stringify(object));
+  }
+
+  /**
+   * Returns the item associated with the given key.
+   * @param {string} key - the key associated with the desired item
+   */
+  function getKey(key) {
+    return JSON.parse(sessionStorage.getItem(key));
+  }
+
+  /**
+   * Returns true if the session storage contains the given key
+   * @param {string} key - the key associated with the given data
+   */
+  function storageContainsKey(key) {
+    return window.sessionStorage.getItem(key) !== null;
   }
 
 })();

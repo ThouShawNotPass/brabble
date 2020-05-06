@@ -1,4 +1,5 @@
 body.dark-mode {
+  background-color: #121212;
   color: #FFFFFFD0;
 }
 
@@ -37,6 +38,12 @@ body.dark-mode section.table ul li > span:nth-child(2) {
 
 body.dark-mode section.table ul li > span:first-child {
   color: #FFFFFFD0;
+}
+
+body.dark-mode section.player-table select,
+body.dark-mode section.table select {
+  color: #FFFFFFC0;
+  background-color: #FFFFFF10;
 }
 
 body.dark-mode section.player-table li:hover,

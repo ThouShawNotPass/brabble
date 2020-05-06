@@ -1,0 +1,224 @@
+/*
+This file styles the main section of the war room tab. This includes
+everything from the best available table to the my team column and the
+four player ecr sheets at the bottom of the page.
+*/
+
+/* Top level styles */
+
+main {
+  display: grid;
+  gap: 2rem;
+  grid: none / repeat(12, 1fr);
+  padding: 4rem;
+}
+
+main section {
+  background-color: #FFFFFF;
+  border-radius: 1.5rem;
+  box-shadow: 0.5rem 0.5rem 2rem #00000010;
+  grid-column: span 4;
+}
+
+main section:not(.table, .player-table) {
+  padding: 2rem;
+}
+
+section.tall {
+  grid-row: span 2;
+}
+
+section.wide {
+  grid-column: span 8;
+}
+
+section.quarter {
+  grid-column: span 3;
+}
+
+section h1 {
+  font-size: 2.2rem;
+  margin-top: 0;
+}
+
+section h2,
+section.table span {
+  color: #000000A0;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+/* Section .table class */
+
+section.table ul li > span:nth-child(2) {
+  color: #000000D0;
+}
+
+section.table h1,
+section.table h2,
+section.player-table h1 {
+  padding: 2rem 0 0 2rem;
+}
+
+section.table ul li,
+section.player-table ul li {
+  padding: 0.8rem 2rem;
+}
+
+section.table ul li > span:first-child {
+  color: #000000D0;
+  display: inline-block;
+  font-weight: 500;
+  width: 4.5rem;
+}
+
+section.table ul li span > span {
+  padding-left: 0.5rem;
+}
+
+section.table ul li:not(#bench) > span:last-child {
+  float: right;
+}
+
+section.table ul li:hover {
+  background-color: #00000010;
+}
+
+section.table ul:last-child li:last-child {
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+
+/* Player Table (Best Available) */
+
+section.player-table > div.settings,
+section.table > div.settings{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section.player-table select,
+section.table select {
+  background-color: #00000010;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 300;
+  height: 3rem;
+}
+
+section.player-table select,
+section.table select:last-child {
+  margin-right: 2rem;
+}
+
+section.player-table select:focus,
+section.table select:focus {
+  outline: none;
+}
+
+section.player-table ul {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 6rem);
+}
+
+section.player-table li {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+section.player-table li:hover {
+  background-color: #00000010;
+}
+
+section.player-table li:last-child {
+  border-radius: 0 0 1.5rem 1.5rem;
+  padding-bottom: 2rem;
+}
+
+section.player-table ul li img {
+  border-radius: 50%;
+  width: 8rem;
+}
+
+section.player-table ul li > div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+section.player-table ul li div.player-information {
+  padding-left: 2rem;
+  text-align: left;
+  width: 20rem;
+}
+
+section.player-table ul li div.player-information div {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+section.player-table ul li div.player-information div span {
+  align-self: center;
+}
+
+section.player-table span.player-name {
+  color: #000000D0;
+  font-size: 2rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
+  width: 30rem;
+  white-space: nowrap;
+}
+
+section.player-table span.player-position,
+section.player-table span.player-team,
+section.player-table span.player-bye,
+section.player-table span.player-status {
+  color: #000000C0;
+  font-size: 1.6rem;
+  font-weight: 300;
+  padding-right: 0.5rem;
+}
+
+section.player-table span.player-status {
+  background-color: #1F63B3;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 0.4rem;
+}
+
+section.player-table div.player-stat-1 span:first-child,
+section.player-table div.player-stat-2 span:first-child,
+section.player-table div.player-stat-3 span:first-child {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+section.player-table div.player-stat-1 span:last-child,
+section.player-table div.player-stat-2 span:last-child,
+section.player-table div.player-stat-3 span:last-child {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+section.player-table div.player-stat-big span:first-child {
+  font-size: 2.8rem;
+}
+
+section.player-table ul li:first-child div.player-stat-big span:first-child {
+  color: #408030;
+  font-weight: 400;
+}
+
+section.player-table div.player-stat-big span:last-child {
+  font-size: 1.4rem;
+  font-weight: 300;
+}

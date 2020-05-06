@@ -4,8 +4,7 @@
  */
 class DraftManager {
 
-  NUM_BEST = 5;
-
+  numBest = 5;
   overallPick = 0; // the current overallPick
   numTeams = 12; // number of teams in the league
   teams = []; // an array of team objects
@@ -16,7 +15,7 @@ class DraftManager {
   // and the number of teams.
   constructor(players, num) {
     this.numTeams = num;
-    // create teams from settings
+    // Teams =>  [QB, RB, WR, TE, FLX, SFLX, DST, K]
     let starters = [1, 2, 2, 1, 1, 0, 1, 1]; // TODO: settings
     let maxPlayers = [5, 10, 10, 5, 3, 3, 5]; // TODO: settings
     for (let i = 0; i < num; i++) {
@@ -27,6 +26,16 @@ class DraftManager {
     for (let i = 0; i < players.length; i++) {
       this.undrafted.push(players[i]);
     }
+  }
+
+  // Sets numBest to the given num.
+  setBest(num) {
+    this.numBest = num;
+  }
+
+  // Gets the value of numBest.
+  getBest() {
+    return this.numBest;
   }
 
   // Returns the current draft pick in the format:
@@ -58,10 +67,10 @@ class DraftManager {
     }
   }
 
-  // Returns an array of the next NUM_BEST players available.
+  // Returns an array of the next numBest players available.
   getBestAvailable() {
     let result = [];
-    for (let i = 0; i < this.NUM_BEST; i++) {
+    for (let i = 0; i < this.numBest; i++) {
       result.push(this.undrafted[i]);
     }
     return result;
