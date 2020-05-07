@@ -5,11 +5,9 @@
 
   function init() {
     setInterval(function() {
-      let data = {
-        text: 'hello from background'
-      };
-      window.postMessage(data, '*');
-      console.log('posted message: ' + data);
+      let channel = new BroadcastChannel('drafted');
+      let message = 'justin is my favorite';
+      channel.postMessage(message);
     }, 1000);
   }
 

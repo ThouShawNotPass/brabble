@@ -9,10 +9,10 @@
 
   function init() {
     // Message Passing API
-    window.addEventListener('message', function(event) {
-      console.log('message recieved: ' + event);
+    let channel = new BroadcastChannel('drafted');
+    channel.addEventListener('message', (event) => {
+      console.log(event.data);
     });
-    console.log('added message listener');
     
     // Set buttons
     id('help').addEventListener('click', fetchStats);
