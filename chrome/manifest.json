@@ -3,7 +3,7 @@
 
   "name": "Draft Guru",
   "description": "Expert rankings that automatically update as you draft.",
-  "version": "0.16",
+  "version": "0.17",
 
   "background": {
     "scripts": ["background.js"]
@@ -15,7 +15,7 @@
   },
 
   "externally_connectable": {
-    "matches": ["*.github.io/*"]
+    "matches": ["https://thoushawnotpass.github.io/brabble/*"]
   },
 
   "permissions": ["https://www.fantasypros.com/*"],

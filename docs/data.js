@@ -3,6 +3,8 @@
 
   window.addEventListener('load', init);
   
+  const EXTENSION_ID = 'mfhhjdfnbngolmlpkdlidiaeakkkaial';
+  
   var draftManager;
   
   function hello() {
@@ -10,11 +12,13 @@
   }
 
   function init() {
-    let extensionId = 'mfhhjdfnbngolmlpkdlidiaeakkkaial';
-    console.log(chrome.runtime.sendMessage(extensionId, hello));
+    // Message Passing API
+    chrome.runtime.sendMessage(EXTENSION_ID, hello);
+    
     // Set buttons
     id('help').addEventListener('click', fetchStats);
     id('num-best').onchange = updateNumBest;
+    
     // Decide if we should fetch new rankings or use local copy
     if (storageContainsKey('rankings')) {
       let rankings = getKey('rankings');
