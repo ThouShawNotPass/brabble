@@ -10,7 +10,7 @@
   function init() {
     // Message Passing API
     window.addEventListener('message', function(event) {
-      console.log(event.data.text);
+      console.log('message recieved: ' + event);
     });
     console.log('added message listener');
     
