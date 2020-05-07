@@ -26,7 +26,7 @@
       "js": ["espn.js"]
     },
     {
-      "matches": ["https://thoushawnotpass.github.io/brabble/*"],
+      "matches": ["https://thoushawnotpass.github.io/brabble/"],
       "js": ["guru.js"]
     }
   ]

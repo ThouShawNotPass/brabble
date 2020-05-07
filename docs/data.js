@@ -3,8 +3,6 @@
 
   window.addEventListener('load', init);
   
-  const EXTENSION_ID = 'mfhhjdfnbngolmlpkdlidiaeakkkaial';
-  
   var draftManager;
 
   function init() {

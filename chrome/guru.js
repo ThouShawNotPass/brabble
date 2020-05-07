@@ -4,12 +4,17 @@
   init();
 
   function init() {
-    setInterval(function() {
-      let channel = new BroadcastChannel('drafted');
-      let message = 'justin is my favorite';
-      channel.postMessage(message);
-      console.log(message);
-    }, 1000);
+    chrome.runtime.onMessage.addListener(
+      function(message, sender, response) {
+        console.log(message);
+      }
+    );
+  }
+
+  function sendToPage() {
+    let channel = new BroadcastChannel('drafted');
+    let message = 'justin is my favorite';
+    channel.postMessage(message);
   }
 
 })();

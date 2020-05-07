@@ -1,15 +1,9 @@
 "use strict";
 (function() {
 
-  window.addEventListener('load', init);
+  window.addEventListener('load', () => setInterval(listenForPicks, 1000));
   var overallPick = 1;
 
-  /**
-   * Initializes the page.
-   */
-  function init() {
-    setInterval(listenForPicks, 1000);
-  }
 
   /**
    * Listens for players to be added to the drafted list, then
@@ -31,24 +25,6 @@
    */
   function sendMessage(message) {
     chrome.runtime.sendMessage(message);
-  }
-
-  /**
-   * Returns the element with the specified ID attribute.
-   * @param {string} name - element ID.
-   * @returns {object} - DOM object associated with id.
-   */
-  function id(name) {
-    return document.getElementById(name);
-  }
-
-  /**
-   * Returns first element matching selector.
-   * @param {string} selector - CSS query selector.
-   * @returns {object} - DOM object associated selector.
-   */
-  function qs(selector) {
-    return document.querySelector(selector);
   }
 
   /**

@@ -34,20 +34,20 @@
     let help = id('help');
     if (isDarkMode) {
       body.classList.remove('dark-mode');
-      home.src = "/img/awesome-home.png";
-      dashboard.src = "/img/material-dashboard.png";
-      trophy.src = "/img/ionic-md-trophy.png";
-      logo.src = "/img/draft-guru.png";
-      mode.src = "/img/awesome-cloud-moon.png";
-      help.src = "/img/ionic-ios-help-circle-outline.png";
+      home.src = "img/awesome-home.png";
+      dashboard.src = "img/material-dashboard.png";
+      trophy.src = "img/ionic-md-trophy.png";
+      logo.src = "img/draft-guru.png";
+      mode.src = "img/awesome-cloud-moon.png";
+      help.src = "img/ionic-ios-help-circle-outline.png";
     } else {
       body.classList.add('dark-mode');
-      home.src = "/img/awesome-home-dark.png";
-      dashboard.src = "/img/material-dashboard-dark.png";
-      trophy.src = "/img/ionic-md-trophy-dark.png";
-      logo.src = "/img/draft-guru-dark.png";
-      mode.src = "/img/awesome-sun.png";
-      help.src = "/img/ionic-ios-help-circle-outline-dark.png";
+      home.src = "img/awesome-home-dark.png";
+      dashboard.src = "img/material-dashboard-dark.png";
+      trophy.src = "img/ionic-md-trophy-dark.png";
+      logo.src = "img/draft-guru-dark.png";
+      mode.src = "img/awesome-sun.png";
+      help.src = "img/ionic-ios-help-circle-outline-dark.png";
     }
     isDarkMode = !isDarkMode;
     updateSound();
@@ -58,7 +58,7 @@
    */
   function updateSound() {
     let sound = id('sound');
-    let path = "/img/ionic-ios-musical-notes";
+    let path = "img/ionic-ios-musical-notes";
     if (isMuted) {
       path += "-muted"; // use the muted version
     }
