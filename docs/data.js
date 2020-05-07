@@ -4,9 +4,18 @@
   window.addEventListener('load', init);
   
   var draftManager;
+  
+  function hello() {
+    console.log('hello world');
+  }
 
   function init() {
+    let extensionId = 'mfhhjdfnbngolmlpkdlidiaeakkkaial';
+    console.log(chrome.runtime.sendMessage(extensionId, hello));
+    // Set buttons
+    id('help').addEventListener('click', fetchStats);
     id('num-best').onchange = updateNumBest;
+    // Decide if we should fetch new rankings or use local copy
     if (storageContainsKey('rankings')) {
       let rankings = getKey('rankings');
       draftManager = new DraftManager(rankings.players, rankings.numTeams);
@@ -21,7 +30,7 @@
    * Updates the number of best players to display and updates UI.
    */
   function updateNumBest() {
-    let num = qs('option:checked').value;
+    let num = qs('#num-best option:checked').value;
     draftManager.setBest(num);
     updateUI();
   }
