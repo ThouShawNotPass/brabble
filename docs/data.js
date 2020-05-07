@@ -9,10 +9,8 @@
 
   function init() {
     // Message Passing API
-    let msg = {greeting: 'hello'}
-    chrome.runtime.onMessageExternal.addListener(function() {
-      console.log('hello, world!');
-    });
+    chrome.runtime.onMessageExternal.addListener(handleMessage);
+    console.log('added message listener');
     
     // Set buttons
     id('help').addEventListener('click', fetchStats);
@@ -27,6 +25,10 @@
       console.log('fetching new stats...');
       fetchStats();
     }
+  }
+
+  function handleMessage(message, sender, response) {
+    console.log(message);
   }
 
   /**
