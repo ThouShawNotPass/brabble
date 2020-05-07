@@ -10,7 +10,9 @@
   function init() {
     // Message Passing API
     let msg = {greeting: 'hello'}
-    chrome.runtime.sendMessage(EXTENSION_ID, msg);
+    chrome.runtime.onMessageExternal.addListener(function() {
+      console.log('hello, world!');
+    });
     
     // Set buttons
     id('help').addEventListener('click', fetchStats);
