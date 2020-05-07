@@ -9,7 +9,9 @@
 
   function init() {
     // Message Passing API
-    chrome.runtime.onMessageExternal.addListener(handleMessage);
+    window.addEventListener('message', function(event) {
+      console.log(event.data.text);
+    });
     console.log('added message listener');
     
     // Set buttons
@@ -25,10 +27,6 @@
       console.log('fetching new stats...');
       fetchStats();
     }
-  }
-
-  function handleMessage(message, sender, response) {
-    console.log(message);
   }
 
   /**
