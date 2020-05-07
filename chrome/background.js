@@ -6,7 +6,9 @@
 
   function init() {
     chrome.runtime.onMessage.addListener(gotMessage);
-    fetchStats();
+    setInterval(function() {
+      chrome.runtime.sendMessage('hello from background');
+    }, 1000);
   }
 
   /**
