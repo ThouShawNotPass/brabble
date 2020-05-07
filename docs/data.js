@@ -8,8 +8,9 @@
   function init() {
     // Message Passing API
     let channel = new BroadcastChannel('drafted');
-    channel.addEventListener('message', (event) => {
-      console.log(event.data);
+    channel.addEventListener('message', (message) => {
+      console.log('message recieved: ' + message)
+      console.log(message.player);
     });
     
     // Set buttons

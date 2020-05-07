@@ -3,7 +3,7 @@
 
   "name": "Draft Guru",
   "description": "Expert rankings that automatically update as you draft.",
-  "version": "0.17",
+  "version": "0.18",
 
   "background": {
     "scripts": ["background.js"]

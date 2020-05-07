@@ -1,8 +1,13 @@
 "use strict";
 (function() {
 
-  window.addEventListener('load', () => setInterval(listenForPicks, 1000));
+  window.addEventListener('load', init);
   var overallPick = 1;
+
+  function init() {
+    setInterval(listenForPicks, 1000);
+    chrome.runtime.sendMessage('espn');
+  }
 
 
   /**
@@ -12,16 +17,18 @@
   function listenForPicks() {
     let names = qsa('.jsx-2093861861 .playerinfo__playername');
     if (names.length === overallPick) {
-      let player = names[names.length - 1].innerText;
-      console.log(player + " was just drafted.");
-      sendMessage(player);
+      let data = {};
+      let name = names[names.length - 1].innerText;
+      data.player = name;
+      console.log(name + " was just drafted.");
+      sendMessage(data);
       overallPick++;
     }
   }
 
   /**
    * Sends a message to the background script.
-   * @param {string} message - message to send.
+   * @param {object} message - message to send.
    */
   function sendMessage(message) {
     chrome.runtime.sendMessage(message);

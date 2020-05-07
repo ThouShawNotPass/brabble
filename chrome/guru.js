@@ -1,19 +1,19 @@
 "use strict";
 (function() {
 
-  init();
+  window.addEventListener('load', init);
 
   function init() {
-    chrome.runtime.onMessage.addListener(
-      function(message, sender, response) {
-        console.log(message);
-      }
-    );
+    chrome.runtime.sendMessage('guru'); // ping the background script
+    chrome.runtime.onMessage.addListener(handleMessage);
   }
 
-  function sendToPage() {
+  function handleMessage(message) {
+    sendToPage(message);
+  }
+
+  function sendToPage(message) {
     let channel = new BroadcastChannel('drafted');
-    let message = 'justin is my favorite';
     channel.postMessage(message);
   }
 
