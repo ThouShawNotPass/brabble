@@ -10,7 +10,7 @@
     let channel = new BroadcastChannel('drafted');
     channel.addEventListener('message', (message) => {
       console.log('message recieved: ' + message)
-      console.log(message.player);
+      console.log(message.data.player);
     });
     
     // Set buttons
