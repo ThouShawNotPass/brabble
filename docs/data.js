@@ -6,14 +6,11 @@
   const EXTENSION_ID = 'mfhhjdfnbngolmlpkdlidiaeakkkaial';
   
   var draftManager;
-  
-  function hello() {
-    console.log('hello world');
-  }
 
   function init() {
     // Message Passing API
-    chrome.runtime.sendMessage(EXTENSION_ID, hello);
+    let msg = {greeting: 'hello'}
+    chrome.runtime.sendMessage(EXTENSION_ID, msg);
     
     // Set buttons
     id('help').addEventListener('click', fetchStats);
