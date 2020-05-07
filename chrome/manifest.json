@@ -24,6 +24,10 @@
     {
       "matches": ["https://fantasy.espn.com/football/draft?*"],
       "js": ["espn.js"]
+    },
+    {
+      "matches": ["https://thoushawnotpass.github.io/brabble/*"],
+      "js": ["guru.js"]
     }
   ]
 }
