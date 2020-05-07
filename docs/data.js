@@ -9,7 +9,6 @@
     // Message Passing API
     let channel = new BroadcastChannel('drafted');
     channel.addEventListener('message', (message) => {
-      console.log(message.data.player + ' was just drafted');
       draftManager.draft(message.data.player);
     });
     
