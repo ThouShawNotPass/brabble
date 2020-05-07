@@ -10,6 +10,7 @@
     let channel = new BroadcastChannel('drafted');
     channel.addEventListener('message', (message) => {
       draftManager.draft(message.data.player);
+      updateUI();
     });
     
     // Set buttons
