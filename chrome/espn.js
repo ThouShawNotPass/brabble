@@ -5,7 +5,7 @@
   var overallPick = 1;
 
   function init() {
-    setInterval(listenForPicks, 1000);
+    setInterval(listenForPicks, 500);
     chrome.runtime.sendMessage('espn');
   }
 
