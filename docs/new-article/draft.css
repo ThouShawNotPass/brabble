@@ -1,0 +1,97 @@
+/* General Styles */
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+}
+
+.light-text {
+  color: #00000060
+}
+
+/*  Nav Styles */
+
+nav,
+nav ul {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+nav {
+  margin: auto;
+  max-width: 104rem;
+}
+
+nav ul {
+  margin-top: 1.5rem;
+  padding: 0;
+}
+
+nav li {
+  font-family: Roboto, sans-serif;
+  font-size: 1.4rem;
+  list-style: none;
+}
+
+nav li:not(:first-child) {
+  padding-left: 1.6rem;
+}
+
+nav li.more-option:hover {
+  color: black;
+  cursor: pointer;
+}
+
+nav img {
+  width: 3.6rem;
+}
+
+nav button {
+  background-color: #2FBF78;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.4rem;
+  padding: 0.8rem 1.8rem;
+}
+
+nav button:hover {
+  background-color: rgb(41, 168, 105);
+}
+
+/* Article Styles */
+
+article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1rem 70rem 1rem 1fr 1fr; 
+  margin-top: 3rem;
+}
+
+h1,
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  grid-column: 4 / 5;
+  outline: none;
+}
+
+h1 {
+  font-size: 4.2rem;
+  font-weight: 300;
+  margin: 0;
+  padding-top: 1.6rem;
+}
+
+p {
+  font-size: 2.1rem;
+  font-weight: 200;
+}
+
+[contentEditable]:empty:not(:focus)::before {
+  color: #00000060;
+  content: attr(data-placeholder);
+}
