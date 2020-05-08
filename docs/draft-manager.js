@@ -61,6 +61,7 @@ class DraftManager {
           this.undrafted.splice(i, 1); // remove player from undrafted list
           this.overallPick += 1; // increment pick count
           console.log(player + ' was just drafted');
+          playerNotFound = false;
           break; // dont keep looking, stop for loop
         }
       }
