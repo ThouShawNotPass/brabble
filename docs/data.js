@@ -111,6 +111,7 @@
     }
     save('rankings', rankings); // save session storage
     draftManager = new DraftManager(rankings.players, rankings.numTeams);
+    console.log(rankings);
   }
 
   /**
