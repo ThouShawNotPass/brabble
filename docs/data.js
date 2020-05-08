@@ -102,6 +102,11 @@
       p.avg = player.childNodes[13].textContent;
       p.std = player.childNodes[15].textContent;
       p.src = imgPath + p.id + '.jpg';
+      if (p.pos === 'DST') { // change 'Seattle Seahawks' to 'Seahawks D/ST'
+        let defense = p.name.split(' ');
+        p.pos = defense[defense.length - 1] + ' D/ST';
+        // TODO: Update the src attribute to the team logo.
+      }
       rankings.players.push(p);
     }
     save('rankings', rankings); // save session storage
