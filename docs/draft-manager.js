@@ -53,7 +53,7 @@ class DraftManager {
       let playerNotFound = true;
       for (let i = 0; i < this.undrafted.length; i++) {
         // search for player in undrafted player list
-        if (this.undrafted[i].name == player) {
+        if (this.undrafted[i].name === player) {
           let pick = this.undrafted[i];
           let teamId = this.overallPick % this.numTeams;
           this.drafted.push(pick); // add player to drafted list
@@ -65,7 +65,7 @@ class DraftManager {
           break; // dont keep looking, stop for loop
         }
       }
-      if (playerFound) {
+      if (playerNotFound) {
         Error('Player not found: ' + player);
       }
     } catch {
