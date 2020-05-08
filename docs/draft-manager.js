@@ -50,6 +50,7 @@ class DraftManager {
   // Drafts the player with the given name
   draft(player) {
     try {
+      let playerNotFound = true;
       for (let i = 0; i < this.undrafted.length; i++) {
         // search for player in undrafted player list
         if (this.undrafted[i].name === player) {
@@ -62,6 +63,9 @@ class DraftManager {
           console.log(player + ' was just drafted');
           break; // dont keep looking, stop for loop
         }
+      }
+      if (playerFound) {
+        Error('Player not found: ' + player);
       }
     } catch {
       throw Error("Player not found: " + player);

@@ -14,7 +14,6 @@
     }
 
     if (sender.tab.id === espnId) {
-      console.log(message + ' from: ' + sender.tab.id);
       send(message);
     }
   }
