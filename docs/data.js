@@ -104,7 +104,7 @@
       p.src = imgPath + p.id + '.jpg';
       if (p.pos === 'DST') { // change 'Seattle Seahawks' to 'Seahawks D/ST'
         let defense = p.name.split(' ');
-        p.pos = defense[defense.length - 1] + ' D/ST';
+        p.name = defense[defense.length - 1] + ' D/ST';
         // TODO: Update the src attribute to the team logo.
       }
       rankings.players.push(p);
