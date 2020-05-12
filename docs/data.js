@@ -6,16 +6,17 @@
   var NUM_TEAMS;
 
   var draftManager;
-  var myRoster;
+  var myRoster = [];
 
   function init() {
     // Message Passing API
     let channel = new BroadcastChannel('drafted');
     channel.addEventListener('message', (message) => {
       // TODO: Parse the position limits from data.settings
+      myRoster = message.data.roster;
+      console.log(myRoster);
       draftManager.draft(message.data.player);
       NUM_TEAMS = message.data.settings.maxPlayers;
-      myRoster = message.data.roster;
       updateUI();
     });
 
@@ -109,7 +110,7 @@
       p.std = player.childNodes[15].textContent;
       p.src = imgPath + p.id + '.jpg';
       if (parseInt(p.bye) < 10) { // change '10' to 'BYE 10'
-        p.bye = '&nbsp' + p.bye;
+        p.bye = '0' + p.bye;
       }
       p.bye = 'BYE ' + p.bye;
       if (p.pos === 'DST') { // change 'Seattle Seahawks' to 'Seahawks D/ST'
@@ -157,17 +158,17 @@
   /**
    * Returns an DOM object with formatted player data.
    * @param {object} player - The player object to render.
-   * @param {*} - The DOM object to add to the list
+   * @param {object} - The DOM object to add to the list
    */
   function formatRoster(player) {
-    let player = makeParent('li', '', [
+    let row = makeParent('li', '', [
       make('span', '', player.pos, ''),
       makeParentWithText('span', 'player-name', player.name, [
         make('span', 'player-team', player.team, '')
       ]),
       make('span', 'player-bye', player.bye, '')
     ]);
-    return player;
+    return row;
   }
 
   /**
