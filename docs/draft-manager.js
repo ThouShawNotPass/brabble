@@ -83,7 +83,7 @@ class DraftManager {
     }
     // player not found! construct a dummy 'empty' player object
     let empty = {};
-    empty.name = ''
+    empty.name = 'Empty'
     empty.pos = '';
     empty.bye = '';
     empty.team = 'Empty';
