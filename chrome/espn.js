@@ -48,14 +48,14 @@
       data.roster = []; // an array players
       data.settings = {}; // maxPlayers, QB, RB, WR, TE, K, D/ST
       data.player = checkName(drafted[drafted.length - 1].textContent);
-      
+
       // log the current roster as an array of player names
       let rosterRows = qsa('.Table2__tbody tr td:nth-child(2) > div');
       for (let i = 0; i < rosterRows.length; i++) {
         let playerName = rosterRows[i].getAttribute('title')
         data.roster.push(checkName(playerName));
       }
-
+      
       // grab the roster limit settings
       let playerCount = qs('.roster-limits > div:first-child > div:last-child').textContent;
       data.settings.maxPlayers = playerCount;
@@ -65,7 +65,7 @@
         let limit = posCount[i].lastChild.textContent;
         data.settings[position] = limit;
       }
-
+      
       // count the number of teams
       let pickList = qsa('.picklist > li');
       let numTeams = -1;
@@ -83,6 +83,7 @@
       sendMessage(data);
       overallPick++;
     }
+    console.log('listen for pick');
   }
 
   /**
@@ -116,22 +117,13 @@
     return document.querySelectorAll(query);
   }
 
-})();
-
-  // Number of teams 
   /**
-   * <ul class="jsx-4285595345 picklist">
-    * <li class="picklist--item picklist--pick"> picklist--divider
-      * <div title="Team Shaw" class="jsx-2824330803 pick-component tc flex flex-column items-center justify-between own-pick">
-      * <div class="jsx-2824330803 pick-number ttu">PICK 44</div>
-        * <div class="jsx-2817594080 croppable-image team-logo" style="height: 24px; overflow: hidden; width: 24px;">
-          * <figure class="Image aspect-ratio--parent team-logo">
-            * <div class="Image__Wrapper aspect-ratio--1x1">
-              * <img class="aspect-ratio--child" alt="Team logo" title="Team logo" data-mptype="image" src="https://g.espncdn.com/lm-static/ffl/images/default_logos/1.svg">
-            * </div>
-          * </figure>
-        * </div>
-        * <div class="jsx-2824330803 team-name truncate">Team Shaw</div>
-      * </div>
-    * </li>
+   * Returns first element matching selector.
+   * @param {string} selector - CSS query selector.
+   * @returns {object} - DOM object associated selector.
    */
+  function qs(selector) {
+    return document.querySelector(selector);
+  }
+
+})();
