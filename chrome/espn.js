@@ -83,7 +83,6 @@
       sendMessage(data);
       overallPick++;
     }
-    console.log('listen for pick');
   }
 
   /**

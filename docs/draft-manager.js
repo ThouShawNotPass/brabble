@@ -77,7 +77,7 @@ class DraftManager {
   getDraftedPlayer(name) {
     for (let i = 0; i < this.drafted.length; i++) {
       // search for player in undrafted player list
-      if (this.drafted[i].name === player) {
+      if (this.drafted[i].name === name) {
         return this.drafted[i];
       }
     }
