@@ -3,16 +3,22 @@
 
   window.addEventListener('load', init);
   
+  var NUM_TEAMS;
+
   var draftManager;
+  var myRoster;
 
   function init() {
     // Message Passing API
     let channel = new BroadcastChannel('drafted');
     channel.addEventListener('message', (message) => {
+      // TODO: Parse the position limits from data.settings
       draftManager.draft(message.data.player);
+      NUM_TEAMS = message.data.settings.maxPlayers;
+      myRoster = message.data.roster;
       updateUI();
     });
-    
+
     // Set buttons
     id('help').addEventListener('click', fetchStats);
     id('num-best').onchange = updateNumBest;
@@ -80,7 +86,7 @@
     rankings.date = doc.querySelector('h5 > time').textContent;
     rankings.concensus = doc.querySelector('.head-wrap > h5').textContent;
     rankings.scoring = 'half-point-ppr'; // Todo: Add scoring options
-    rankings.numTeams = 12;
+    rankings.numTeams = NUM_TEAMS;
     rankings.players = [];
 
     let imgPath = "https://images.fantasypros.com/images/nfl/players/250x250/";
@@ -102,6 +108,10 @@
       p.avg = player.childNodes[13].textContent;
       p.std = player.childNodes[15].textContent;
       p.src = imgPath + p.id + '.jpg';
+      if (parseInt(p.bye) < 10) { // change '10' to 'BYE 10'
+        p.bye = '&nbsp' + p.bye;
+      }
+      p.bye = 'BYE ' + p.bye;
       if (p.pos === 'DST') { // change 'Seattle Seahawks' to 'Seahawks D/ST'
         let defense = p.name.split(' ');
         p.name = defense[defense.length - 1] + ' D/ST';
@@ -130,11 +140,34 @@
     }
 
     // Update my team
+    let myTeam = id('my-team');
+    myTeam.innerHTML = ''; // clear the table
+    for (let i = 0; i < myRoster.length; i++) {
+      let player = draftManager.getDraftedPlayer(myRoster[i]);
+      let row = formatRoster(player);
+      myTeam.appendChild(row);
+    }
 
     // Update the pick number
     let pickInfo = draftManager.getPick();
     id('pick').textContent = pickInfo[0];
     id('overall').textContent = pickInfo[1];
+  }
+
+  /**
+   * Returns an DOM object with formatted player data.
+   * @param {object} player - The player object to render.
+   * @param {*} - The DOM object to add to the list
+   */
+  function formatRoster(player) {
+    let player = makeParent('li', '', [
+      make('span', '', player.pos, ''),
+      makeParentWithText('span', 'player-name', player.name, [
+        make('span', 'player-team', player.team, '')
+      ]),
+      make('span', 'player-bye', player.bye, '')
+    ]);
+    return player;
   }
 
   /**
@@ -151,8 +184,8 @@
         makeParent('div', '', [
           make('span', 'player-position', data.pos, ''),
           make('span', 'player-team', data.team, ''),
-          make('span', 'player-bye', 'BYE ' + data.bye, ''),
-          make('span', 'player-status', data.posRnk, '') // TODO: Make Dynamic
+          make('span', 'player-bye', data.bye, ''),
+          make('span', 'player-status', data.posRnk, '')
         ])
       ]),
       makeParent('div', 'player-stat-1', [
@@ -198,11 +231,25 @@
     return parent;
   }
 
+   /**
+   * Returns a DOM object with the given children.
+   * @param {string} name - the name of the element
+   * @param {string} className – the name of the class to add
+   * @param {string} text - the textContent to add to element
+   * @param {array} children - the array of child nodes
+   * @returns {object} - the DOM object of the parent.
+   */
+  function makeParentWithText(name, className, text, children) {
+    let parent = makeParent(name, className, children);
+    parent.textContent = text;
+    return parent;
+  }
+
   /**
    * Returns a DOM object with the given attributes.
    * @param {string} name - the name of the element
-   * @param {string} className - the class to add to span
-   * @param {string} text - the textContent to add to span
+   * @param {string} className - the class to add to element
+   * @param {string} text - the textContent to add to element
    * @param {string} src - the element's src attribute
    * @returns {object} - the DOM span object
    */

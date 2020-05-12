@@ -45,8 +45,8 @@
     let drafted = qsa('.jsx-2093861861 .playerinfo__playername');
     if (drafted.length === overallPick) {
       let data = {};
-      data.roster = [];
-      data.settings = {};
+      data.roster = []; // an array players
+      data.settings = {}; // maxPlayers, QB, RB, WR, TE, K, D/ST
       data.player = checkName(drafted[drafted.length - 1].textContent);
       
       // log the current roster as an array of player names

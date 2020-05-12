@@ -6,7 +6,7 @@ class DraftManager {
 
   numBest = 5;
   overallPick = 0; // the current overallPick
-  numTeams = 12; // number of teams in the league
+  numTeams; // number of teams in the league
   teams = []; // an array of team objects
   drafted = []; // list of drafted players
   undrafted = []; // list of undrafted players
@@ -71,6 +71,23 @@ class DraftManager {
     } catch {
       throw Error("Unexpected Error. Player not found: " + player);
     }
+  }
+
+  // Returns a player object of the first player with the matching name
+  getDraftedPlayer(name) {
+    for (let i = 0; i < this.drafted.length; i++) {
+      // search for player in undrafted player list
+      if (this.drafted[i].name === player) {
+        return this.drafted[i];
+      }
+    }
+    // player not found! construct a dummy 'empty' player object
+    let empty = {};
+    empty.name = ''
+    empty.pos = '';
+    empty.bye = '';
+    empty.team = 'Empty';
+    return empty; // we are garunteed to have above attributes available.
   }
 
   // Returns an array of the next numBest players available.
