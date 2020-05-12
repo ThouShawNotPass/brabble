@@ -6,7 +6,7 @@
   var NUM_TEAMS = 12;
 
   var draftManager;
-  var myRoster = ['','','','','','','','','','','','','','','',''];
+  var myRoster = [];
 
   function init() {
     // Message Passing API
@@ -143,6 +143,7 @@
     // Update my team
     let myTeam = id('my-team');
     myTeam.innerHTML = ''; // clear the table
+    console.log(myRoster.length);
     for (let i = 0; i < myRoster.length; i++) {
       let player = draftManager.getDraftedPlayer(myRoster[i]);
       let row = formatRoster(player);
