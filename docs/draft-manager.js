@@ -66,10 +66,10 @@ class DraftManager {
         }
       }
       if (playerNotFound) {
-        Error('Player not found: ' + player);
+        Error('Search Exhausted. Player not found: ' + player);
       }
     } catch {
-      throw Error("Player not found: " + player);
+      throw Error("Unexpected Error. Player not found: " + player);
     }
   }
 
