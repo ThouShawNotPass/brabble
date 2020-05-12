@@ -54,7 +54,6 @@ class DraftManager {
       for (let i = 0; i < this.undrafted.length; i++) {
         // search for player in undrafted player list
         if (this.undrafted[i].name === player) {
-          console.log(player);
           let pick = this.undrafted[i];
           let teamId = this.overallPick % this.numTeams;
           this.drafted.push(pick); // add player to drafted list

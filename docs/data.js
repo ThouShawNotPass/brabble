@@ -3,7 +3,7 @@
 
   window.addEventListener('load', init);
   
-  var NUM_TEAMS;
+  var NUM_TEAMS = 12;
 
   var draftManager;
   var myRoster = [];
