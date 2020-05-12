@@ -6,7 +6,7 @@
   var NUM_TEAMS = 12;
 
   var draftManager;
-  var myRoster = [];
+  var myRoster = ['','','','','','','','','','','','','','','',''];
 
   function init() {
     // Message Passing API
