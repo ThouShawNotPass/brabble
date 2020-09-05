@@ -12,11 +12,12 @@
     // Message Passing API
     let channel = new BroadcastChannel('drafted');
     channel.addEventListener('message', (message) => {
-      // TODO: Parse the position limits from data.settings
-      console.log(message.data);
-      myRoster = message.data.roster;
-      draftManager.draft(message.data.player);
-      NUM_TEAMS = message.data.settings.maxPlayers;
+			// TODO: Parse the position limits from data.settings
+			let data = message.data;
+      console.log(data);
+      myRoster = data.roster;
+      draftManager.draft(data.player);
+      NUM_TEAMS = data.settings.maxPlayers;
       updateUI();
     });
 

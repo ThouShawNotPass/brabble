@@ -16,7 +16,7 @@ class DraftManager {
   constructor(players, num) {
     this.numTeams = num;
     // Teams =>  [QB, RB, WR, TE, FLX, SFLX, DST, K]
-    let starters = [1, 2, 2, 1, 1, 0, 1, 1]; // TODO: settings
+    let starters = [1, 2, 2, 0, 2, 0, 1, 1]; // TODO: settings
     let maxPlayers = [5, 10, 10, 5, 3, 3, 5]; // TODO: settings
     for (let i = 0; i < num; i++) {
       let team = new Team(starters, maxPlayers);
